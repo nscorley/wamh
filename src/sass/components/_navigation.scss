@@ -1,0 +1,17 @@
+/**
+  * Styles for the MainNavigation component
+  **/
+@import "../helpers/all";
+
+#main-navigation {
+  nav {
+    background-color: $amherst-purple-1;
+    border-radius: 0;
+  }
+  a {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+}
