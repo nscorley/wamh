@@ -1,0 +1,107 @@
+/**
+  * Miscellaneous Mixins
+  **/
+
+// typography
+@mixin typography() {
+  p {
+    font-size: 1.3em;
+    font-weight: 200;
+    line-height: 1.55em;
+  }
+
+  * {
+    font-family: 'Montserrat', sans-serif;
+    &:focus {
+      outline: 0;
+      outline: none;
+    }
+  }
+
+  // glyphs default to bootstrap theme
+  .glyphicon {
+    font-family: 'Glyphicons Halflings';
+  }
+}
+
+// create padding
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+// create margins
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+// creates cirlces (surprise)
+@mixin circle($width, $color) {
+  width: $width;
+  height: $width;
+  background: $color;
+  -webkit-border-radius: $width/2;
+     -moz-border-radius: $width/2;
+          border-radius: $width/2;
+}
+
+// respond to enumerated media type or max/min in pixels
+@mixin media($type: null, $max: null, $min: null) {
+
+  // handle if type was given
+  @if $type == tablet {
+    $min: 768px;
+    $max: 991px;
+  }
+
+  @else if $type == mobile {
+    $max: 767px;
+  }
+
+  @else if $type == browser {
+    $min: 991px;
+    $max: 1250px;
+  }
+
+  // set max, if given as a type
+  @if $max == tablet {
+    $max: 991px;
+  }
+  @else if $max == browser {
+    $max: 1250px;
+  }
+  @else if $max == mobile {
+    $max: 767px;
+  }
+
+  // set min, if given as a type (mobile has no min)
+  @if $min == tablet {
+    $min: 768px;
+  }
+  @else if $min == browser {
+    $min: 991px;
+  }
+
+  // set the styles, depending on which bounds were set
+  @if $min and $max {
+    @media only screen and (min-width:$min) and (max-width: $max) {
+      @content;
+    }
+  }
+  @else if $min {
+    @media only screen and (min-width:$min) {
+      @content;
+    }
+  }
+  @else if $max {
+    @media only screen and (max-width: $max) {
+      @content;
+    }
+  }
+
+}

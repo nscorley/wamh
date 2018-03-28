@@ -1,0 +1,5 @@
+https://matejkustec.github.io/SpinThatShit/ (spinners)
+https://daneden.github.io/animate.css/ (animations)
+https://angled-edges.josephfus.co/ (angled edges)
+http://kyleshevlin.github.io/shevy/ (vertical rhythm)
+http://ianlunn.github.io/Hover/ (hover effects)

@@ -1,0 +1,41 @@
+#bio-modal {
+
+  @include typography();
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.4em;
+  }
+
+  img {
+    height: 100px;
+    margin-right: 20px;
+  }
+
+  #header-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal-body {
+    @include padding($left: 40px, $right: 40px);
+  }
+}
+
+#loader-overlay{
+  position: fixed; /* Sit on top of the page content */
+  display: block;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.93); /* Black background with opacity */
+  z-index: 2; /* stack order */
+  #loader-div {
+    display: flex;
+    align-items: center;
+    @include loader09($size: 10px, $height: 48px, $gap: 8px, $duration: 1s, $align: middle, $color: $amherst-purple-1);
+  }
+}

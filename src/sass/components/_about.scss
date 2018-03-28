@@ -1,0 +1,43 @@
+/**
+  * Styles for the About component
+  **/
+
+#about {
+
+  h1 {
+    margin-bottom: 55px;
+  }
+
+  #general {
+    background-color: $bootstrap-light-gray;
+    @include angled-edge('outside bottom','lower right', $bootstrap-light-gray);
+    @include padding($top: 100px, $bottom: 75px);
+    margin-bottom: 75px;
+  }
+
+  #members {
+    h1 {
+      text-align: right;
+    }
+    #bio-wrapper {
+      .thumbnail {
+        width: 300px;
+        img {
+          height: 300px;
+          width: 300px;
+          object-fit: cover;
+        }
+        margin-bottom: 40px;
+      }
+      p {
+        font-size: 1em;
+        line-height: 1.2em;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+
+  padding-bottom: 35px;
+}

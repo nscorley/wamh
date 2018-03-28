@@ -1,17 +1,169 @@
 /**
   * Styles for the MainNavigation component
   **/
-@import "../helpers/all";
 
 #main-navigation {
-  nav {
-    background-color: $amherst-purple-1;
-    border-radius: 0;
-  }
-  a {
-    color: white;
-    &:hover {
-      color: black;
+  display: flex;
+  justify-content: space-between;
+  height: 130px;
+  @include media($max: 650px) { height: 60px; }
+  background-color: $amherst-purple-1;
+  // background-image: url('../assets/waves-background.png');
+  // background-size: cover;
+
+  #left-panel {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    a > img {
+      height: 100px;
+      @include margin($left: 30px, $right: 30px);
+      @include media($max: 650px) { display: none; }
+    }
+
+    #mobile-title {
+      display: none;
+      @include media($max: 650px) { display: block; }
+      color: white;
+      font-size: 2em;
+      margin-left: 15px;
+    }
+
+    #now-playing {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      @include media($max: 650px) { display: none; }
+
+      svg {
+        display: flex;
+        align-items: center;
+        font-size: 3em;
+        color: $amherst-purple-0;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      #off-air-icon {
+        cursor: not-allowed;
+      }
+
+      img {
+        height: 85px;
+        @include margin($left: 20px, $right: 15px);
+        border-radius: 5px;
+        border: 1px solid $bootstrap-dark-gray;
+      }
+
+      #off-air {
+        color: white;
+        font-size: 1.3em;
+        width: 100px;
+      }
+
+      #current-info-container {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        padding-right: 25px;
+        #now-playing-header {
+          font-size: 0.8em;
+          font-weight: bold;
+        }
+        #show-information {
+          font-weight: '100';
+        }
+        #song-info {
+          font-size: 1.2em;
+          #current-band { font-weight: bold }
+        }
+      }
     }
   }
+
+  #right-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include media($max: 1115px) { justify-content: center }
+
+    #top-section {
+      display: flex;
+      color: white;
+      @include media($max: 1115px) { display: none }
+      #call-in {
+        display: flex;
+        align-items: flex-end;
+        margin-right: 30px;
+        #phone-number {
+          font-size: 1.2em;
+        }
+        a:hover {
+          color: $bootstrap-dark-gray;
+        }
+      }
+      #social-group {
+        div {
+          $diameter: 25px;
+          @include circle($diameter, $amherst-purple-3);
+          @include fade($amherst-purple-0);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: $diameter;
+        }
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+        padding-right: max(2, get-vw(10px)) + unquote('vw');
+        @include margin($top: 15px);
+      }
+    }
+
+    a {
+      color: white;
+      &:hover { text-decoration: none; }
+    }
+
+    li {
+      a:hover {
+          text-decoration: none;
+          background-color: transparent;
+          border-color: transparent;
+          color: $bootstrap-dark-gray
+      }
+
+      &.active a {
+        background-color:$bootstrap-light-gray;
+        color: black;
+      }
+    }
+
+    li.active a {
+
+    }
+
+    ul {
+      @include media($max: 1115px) {
+        display: none;
+      }
+      border-bottom: none;
+      $padding: max(2, get-vw(10px)) + unquote('vw');
+      padding-right: $padding;
+    }
+
+    #mobile-menu div {
+      display: none;
+      margin: 20px;
+      @include media($max: 1115px) {
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+
 }

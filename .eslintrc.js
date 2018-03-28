@@ -7,6 +7,7 @@ module.exports = {
     'react/no-array-index-key': 0,
     'jsx-a11y/label-has-for': 0,
     'jsx-a11y/href-no-hash': 0,
+    "jsx-a11y/anchor-is-valid": 0,
     'react/jsx-filename-extension': 0,
   },
   globals: {

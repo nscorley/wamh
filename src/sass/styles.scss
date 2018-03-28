@@ -1,12 +1,30 @@
+// Helpers
+@import "helpers/all";
+
+// Vendors
+@import "vendors/hovers";
+@import "vendors/animations";
+@import "vendors/angled-edges";
+@import 'vendors/spin-that-shit/loaders';
+@import 'vendors/waves';
+@import 'vendors/fullcalendar';
+
 // 100 CSS priority score to override bootstrap
 #bootstrap-overrides {
+
   // Base (NOTE: Bootstrap takes care of CSS reset)
   @import "base/typography";
 
   // Components
-  @import "components/_navigation";
-
-  // Helpers
-  @import "helpers/all";
-
+  @import "components/navigation";
+  @import "components/welcome-screen";
+  @import "components/about";
+  @import "components/schedule";
+  @import "components/get-involved";
+  @import "components/footer";
+  @import "components/contact";
+  @import "components/mobile-menu-slider";
 }
+
+// Modal overrides imported separately
+@import "components/modals";

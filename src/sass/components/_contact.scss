@@ -1,0 +1,52 @@
+/**
+  * Styles for the Contact component
+  **/
+
+#contact {
+
+  background-color: $bootstrap-light-gray;
+  @include padding($top: 100px, $bottom: 75px);
+  a:hover {
+    text-decoration: none;
+  }
+  h1 {
+    margin-bottom: 25px;
+  }
+  h2 {
+    font-size: 1.4em;
+    @include padding($top: 3px, $bottom: 3px);
+  }
+
+  h1, p {
+    @include media($max: tablet) {
+      text-align: center;
+    }
+  }
+  .panel {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    .panel-body {
+      @include padding($top: 20px, $bottom: 20px);
+    }
+    @include media($max: tablet) {
+      width: 100%;
+    }
+
+    .well {
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      @include media($max: tablet) {
+        width: 100%;
+      }
+      a {
+        cursor: pointer;
+        font-size: 1.3em;
+        svg { margin-right: 15px; }
+      }
+    }
+
+  }
+
+}

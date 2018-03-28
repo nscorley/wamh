@@ -1,0 +1,63 @@
+$count: 	100;
+$size: 		3;
+$duration: 	3s;
+$amp: 		50%;
+$tuynTiv: 	.1s; // .7s
+
+#wave {
+
+  .dot {
+  	position: absolute;
+  	top: 0;
+  	width: $size#{px};
+  	height: $size#{px};
+  	background-color: $amherst-purple-1;
+  	border-radius: 50%;
+    z-index: -1;
+  }
+
+
+  @for $i from 1 through $count {
+  	$amplitude: 0;
+
+  	$t: ($i*2)/$count;
+
+  	@if ($t < 1) {
+  		$is: $i - 1;
+  		$amplitude: (-$is/2 * ($t*($t - 1.25) - 1))*$amp;
+  	} @else {
+  		$is: $count - $i;
+  		$t: ($is*2)/$count;
+  		$amplitude: (-$is/2 * ($t*($t - 1.25) - 1))*$amp;
+  	}
+
+  	@-webkit-keyframes wave#{$i} {
+  		0% 		{ -webkit-transform: translate3d(0, $amplitude, 0); }
+  		50% 	{ -webkit-transform: translate3d(0, -$amplitude, 0); }
+  		100% 	{ -webkit-transform: translate3d(0, $amplitude, 0); }
+  	}
+
+  	@-moz-keyframes wave#{$i} {
+  		0% 		{ -moz-transform: translate3d(0, $amplitude, 0); }
+  		50% 	{ -moz-transform: translate3d(0, -$amplitude, 0); }
+  		100% 	{ -moz-transform: translate3d(0, $amplitude, 0); }
+  	}
+
+  	@keyframes wave#{$i} {
+  		0% 		{ transform: translate3d(0, $amplitude, 0); }
+  		50% 	{ transform: translate3d(0, -$amplitude, 0); }
+  		100% 	{ transform: translate3d(0, $amplitude, 0); }
+  	}
+
+  	.dot:nth-child(#{$i}) {
+  		right: ($i - 1)*(100%/$count) + 50%/$count;
+
+  		$is: $i - 1;
+
+  		-webkit-animation: wave#{$i} $duration -1 -($is - 1)*$tuynTiv infinite ease-in-out;
+  		-moz-animation: wave#{$i} $duration -1 -($is - 1)*$tuynTiv infinite ease-in-out;
+  		animation: wave#{$i} $duration -1 -($is - 1)*$tuynTiv infinite ease-in-out;
+  	}
+  }
+
+}

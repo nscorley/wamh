@@ -1,0 +1,66 @@
+/**
+  * Styles for the Footer component
+  **/
+
+#footer {
+  background-color: $amherst-purple-1;
+  color: white;
+  @include padding($top: 75px, $bottom: 15px);
+  @include media($max: mobile) {
+    text-align: center;
+  }
+  #wrapper { @include padding($left: 15px, $right: 15px); }
+
+  #social-links {
+    display: flex;
+    @include media($max: mobile) {
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    div {
+      $diameter: 30px;
+      @include circle($diameter, $amherst-purple-3);
+      @include fade($amherst-purple-0);
+      margin-right: 15px;
+      width: $diameter;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+      cursor: pointer;
+      svg { color: $bootstrap-light-gray; }
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+        margin-bottom: 10px;
+    }
+    a {
+      font-weight: 100;
+      color: white;
+      &:hover {
+        text-decoration: none;
+        color: $bootstrap-dark-gray;
+      }
+    }
+  }
+
+  hr {
+    border-top: 1px solid $bootstrap-dark-gray;
+    margin-top: 10px;
+  }
+
+  #credit {
+    text-align: right;
+    a {
+      color: $bootstrap-dark-gray;
+    }
+    @include media(mobile) {
+      display: none;
+    }
+
+    @include padding($top: 40px, $right: 15px);
+  }
+}

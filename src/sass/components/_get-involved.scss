@@ -1,0 +1,55 @@
+/**
+  * Styles for the GetInvolved component
+  **/
+
+#get-involved {
+
+  margin-bottom: 50px;
+
+  h1 {
+    margin-bottom: 25px;
+  }
+
+  #info-section {
+    background-color: $bootstrap-light-gray;
+    @include angled-edge('outside bottom','lower right', $bootstrap-light-gray);
+    @include padding($top: 100px, $bottom: 75px);
+    margin-bottom: 75px;
+  }
+
+  #step-section {
+    margin-top: 200px;
+    #steps {
+      @include margin($top: 50px, $bottom: 40px);;
+      .glyphicon {
+        font-size: 1.5em;
+        top: 5px;
+        color: $amherst-purple-1;
+      }
+      h5 {
+        display: inline;
+        @include margin($left: 3px, $bottom: 5px);
+        color: $amherst-purple-1;
+      }
+      p {
+        @include padding($top: 20px, $bottom: 20px, $left: 10%, $right: 10%);
+        text-align: center;
+        font-weight: 400;
+      }
+      ul {
+        display: flex;
+        justify-content: center;
+      }
+
+      // hide titles on small screens
+      @media only screen and (max-width: 800px) {
+        h5 {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+
+}

@@ -1,0 +1,11 @@
+/**
+  * Styles for the Schedule component
+  **/
+
+#schedule {
+  background-color: $bootstrap-light-gray;
+  @include padding($top: 75px, $bottom: 35px);
+  h1 {
+    margin-bottom: 25px;
+  }
+}

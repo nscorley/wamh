@@ -1,0 +1,79 @@
+/**
+  * Styles for the WelcomeScreen component
+  **/
+
+#welcome-screen {
+
+  .jumbotron {
+    text-align: center;
+    @include padding($left: 15px, $right: 15px, $top: 120px, $bottom: 120px);
+    
+    // more padding on large screens
+    @include media($min: browser) {
+      @include padding($top: 160px, $bottom: 160px);
+    }
+    margin-bottom: 0px;
+  }
+  #play-button {
+    font-size: 8em;
+    color: $amherst-purple-3;
+    cursor: pointer;
+    span {
+      z-index: 2 !important;
+    }
+  }
+  #wave-container {
+    &.visible-wave {
+      height: 150px;
+      transition: height 1000ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      #wave {
+        opacity: 1.0;
+        transition: opacity 1000ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      }
+    }
+    &.hidden-wave {
+      height: 0px;
+      transition: height 500ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      #wave {
+        opacity: 0;
+        transition: opacity 500ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      }
+    }
+    #cushion {
+      padding-top: 70px;
+    }
+    #wave {
+      position: relative;
+      z-index: 1;
+    	width: 100%;
+      left: 0px;
+    }
+  }
+
+
+  #featured {
+    @include angled-edge('inside top','lower left', $bootstrap-light-gray);
+    @include padding($top: 180px, $bottom: 150px);
+    border-bottom: 1px solid $bootstrap-light-gray;
+    background-image: url('../assets/wamh-powerhouse.jpg');
+    background-size: cover;
+    #thumbnail-wrapper {
+      .thumbnail {
+        width: 300px;
+        img {
+          height: 300px;
+          object-fit: cover;
+        }
+      }
+      p {
+        font-size: 1.2em;
+        line-height: 1.35em;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+  }
+
+}

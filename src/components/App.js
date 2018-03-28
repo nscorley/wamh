@@ -1,14 +1,19 @@
+/**
+ * Main site entrypoint
+ * Renders all subsequent components
+ */
 import React from 'react';
-import MainNavigation from './MainNavigation';
-import Footer from './Footer';
-import WelcomeScreen from './WelcomeScreen';
-
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import MainWebsite from './MainWebsite';
 
 const App = () => (
-  <div id="bootstrap-overrides">
-    <MainNavigation />
-    <WelcomeScreen />
-    <Footer />
-  </div>
+  // TODO: set 404 fallback
+  <BrowserRouter>
+    {/* Framework for admin page */}
+    <Switch>
+      <Route path="*" component={MainWebsite} />
+    </Switch>
+  </BrowserRouter>
 );
+
 export default App;

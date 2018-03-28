@@ -1,0 +1,43 @@
+#mobile-menu-slider {
+
+  img {
+    height: 100px;
+    @include margin($top: 80px, $bottom: 10px);
+  }
+
+  text-align: center;
+
+  .bm-overlay { cursor: pointer }
+
+  .bm-cross {
+    background: #bdc3c7;
+  }
+
+
+  .bm-burger-button {
+    display: none;
+  }
+
+  .bm-menu {
+    background: #373a47;
+
+    a {
+      color: #b8b7ad;
+
+      &:hover,
+      &:focus {
+        color: $amherst-purple-0;
+        text-decoration: none;
+      }
+    }
+  }
+  .bm-item-list a {
+    padding: 0.8em;
+
+    span {
+      margin-left: 10px;
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+  }
+}
